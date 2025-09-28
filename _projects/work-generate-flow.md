@@ -1,5 +1,6 @@
 ---
 title: Science At Scale. 
+layout: default
 description: My work on our scientific compute backend. 
 image: /assets/my-cool-project.png
 ---

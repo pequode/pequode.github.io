@@ -19,7 +19,7 @@ To do succeed in research while in industry you need to:
 - flexibility 
 - standards 
 
-At ["https://generatebiomedicines.com/](Generate Biomedicines) my team made the unified python platform which powered our research efforts.
+At [Generate Biomedicines](https://generatebiomedicines.com/) my team made the unified python platform which powered our research efforts.
 
 # G: Flow 
 ## What 

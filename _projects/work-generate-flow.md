@@ -1,6 +1,6 @@
 ---
-title: My Cool Project
-description: A short description of what I built.
+title: Science At Scale. 
+description: My work on our scientific compute backend. 
 image: /assets/my-cool-project.png
 ---
 # Science At Scale. 

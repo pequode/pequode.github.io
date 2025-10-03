@@ -8,7 +8,9 @@ image: /assets/my-cool-project.png
 My work on our scientific compute backend. 
 
 ## Background 
-Controlling distributed systems in realtime is hard. Many people at [Generate Biomedicines](https://generatebiomedicines.com/) prefer using generate-flow to other workflow managers. It allows them to, say, use 10 different machines to run predictions on rather than their one macbook. However, now there are 10 different places that can have errors. What if they use 100 different machines by accident. How can they predict how long a new flow will take if they cant see the time the old flow took? Generate-Flow-UI is a package that I prototyped and help support ongoing development of. 
+Controlling distributed systems in realtime is hard. Many people at [Generate Biomedicines](https://generatebiomedicines.com/) prefer using generate-flow to other workflow managers. It allows them to, say, use 10 different machines to run predictions on rather than their one macbook. However, now there are 10 different places that can have errors. What if they use 100 different machines by accident. How can they predict how long a new flow will take if they cant see the time the old flow took? Generate-Flow-UI is a package that I prototyped and help support ongoing development of. It is the UI for the platform [generate-flow](/projects/work-generate-flow.html) 
+
+# Generate-Flow UI
 
 ## What 
 I designed and released a internal web application which took advantage of our clearly defined interfaces for database backends. This allowed me to

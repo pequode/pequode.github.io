@@ -23,6 +23,7 @@ To do succeed in research while in industry you need to:
 At [Generate Biomedicines](https://generatebiomedicines.com/) my team made the unified python platform which powered our research efforts.
 
 # G: Flow 
+
 ## What 
 generate-flow is a platform for defining work. You define "Tasks" by wrapping python functions and these can then be scheduled on a job queue to be run asynchronously. We also define a set of common objects that can hold the state of a protein experiment. These our our **standards**. 
 

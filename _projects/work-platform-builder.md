@@ -2,7 +2,7 @@
 title: But It Works On My Computer? 
 layout: default
 description: How I designed a system to support a unified compute environment.  
-image: /_assets/PB_0.png
+image: /assets/PB_0.png
 ---
 # But It Works On My Computer? 
 My work on our scientific compute backend. 

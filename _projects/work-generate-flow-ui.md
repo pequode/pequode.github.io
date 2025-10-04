@@ -2,7 +2,7 @@
 title: Visibility Maters 
 layout: default
 description: My work on supporting the frontend application for our workflows. 
-image: /_assets/gflowui_0.png
+image: /assets/gflowui_0.png
 ---
 # Visibility Maters 
 My work on our scientific compute backend. 
@@ -11,7 +11,7 @@ My work on our scientific compute backend.
 Controlling distributed systems in realtime is hard. Many people at [Generate Biomedicines](https://generatebiomedicines.com/) prefer using generate-flow to other workflow managers. It allows them to, say, use 10 different machines to run predictions on rather than their one macbook. However, now there are 10 different places that can have errors. What if they use 100 different machines by accident. How can they predict how long a new flow will take if they cant see the time the old flow took? Generate-Flow-UI is a package that I prototyped and help support ongoing development of. It is the UI for the platform [generate-flow](/projects/work-generate-flow.html) 
 
 # Generate-Flow UI
-![an image of generate flow ui](/_assets/gflowui_1.png "The GFlow UI I wrote by myself.")
+![an image of generate flow ui](/assets/gflowui_1.png "The GFlow UI I wrote by myself.")
 ## What 
 I designed and released a internal web application which took advantage of our clearly defined interfaces for database backends. This allowed me to
 create Workflow(DAG) visualizations for Flows with many different configurations. 

@@ -2,7 +2,7 @@
 title: Science At Scale. 
 layout: default
 description: My work on our scientific compute backend. 
-image: /_assets/gflow_0.png
+image: /assets/gflow_0.png
 ---
 # Science At Scale. 
 My work on our scientific compute backend. 
@@ -23,7 +23,7 @@ To do succeed in research while in industry you need to:
 At [Generate Biomedicines](https://generatebiomedicines.com/) my team made the unified python platform which powered our research efforts.
 
 # G: Flow 
-![image of glow_ui](/_assets/gflow_1.png "Turning research code into production code.")
+![image of glow_ui](/assets/gflow_1.png "Turning research code into production code.")
 ## What 
 generate-flow is a platform for defining work. You define "Tasks" by wrapping python functions and these can then be scheduled on a job queue to be run asynchronously. We also define a set of common objects that can hold the state of a protein experiment. These our our **standards**. 
 

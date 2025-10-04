@@ -92,7 +92,7 @@ personal: true
 
    return { canvas, ctx, dataURL, download };
   }
-  const { canvas, download } = drawGridToCanvas(result, {
+  const { canvas, download } = draw_canvas(result, {
     cellSize: 32,
     gap: 1,
     lineColor: "#ddd",
@@ -109,3 +109,5 @@ personal: true
   btn.onclick = () => download();
   document.body.appendChild(btn);
 </script>
+<h1>A Crabby way to draw simple mazes.</h1>
+<p>Using rust and Prims algorithm to randomly generate unique mazes.</p>

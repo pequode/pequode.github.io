@@ -2,7 +2,7 @@
 title: Cutting Cost by normalizing data.  
 layout: default
 description: Smart archiving so that data is still useful.    
-image: /assets/sangam_0.png
+image: /assets/sangam_0.svg
 ---
 # Cutting Cost by normalizing data.
 

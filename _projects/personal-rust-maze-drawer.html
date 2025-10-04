@@ -15,4 +15,97 @@ personal: true
   // Now use the wasm functions
   const result = maze_gen.maze_maker(10, 10, 0, 1, 10, 42);
   console.log(result);
+  function draw_canvas(grid, options = {}){
+     
+        if (!Array.isArray(grid) || grid.length === 0) {
+            throw new Error("grid must be a non-empty 2D array");
+        }
+
+  const n = grid.length;
+  // Basic validation: ensure square and numeric
+  for (let i = 0; i < n; i++) {
+    if (!Array.isArray(grid[i]) || grid[i].length !== n) {
+      throw new Error("grid must be square (n x n)");
+    }
+  }
+
+  const {
+    cellSize = 20,
+    gap = 0,
+    background = "#ffffff",
+    lineColor = null,
+    appendTo = null,
+    downloadFilename = "grid.png",
+  } = options;
+
+  const width = n * cellSize + Math.max(0, n - 1) * gap;
+  const height = width;
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  canvas.style.imageRendering = "pixelated"; // looks crisper for small cells
+  const ctx = canvas.getContext("2d");
+
+  // Fill background
+  ctx.fillStyle = background;
+  ctx.fillRect(0, 0, width, height);
+
+  // Draw cells
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      const value = grid[i][j];
+      const x = j * (cellSize + gap);
+      const y = i * (cellSize + gap);
+      // If exactly 0 -> black, otherwise white (you can change threshold if needed)
+      ctx.fillStyle = value === 0 ? "#000000" : "#ffffff";
+      ctx.fillRect(x, y, cellSize, cellSize);
+
+      if (lineColor) {
+        ctx.strokeStyle = lineColor;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x + 0.5, y + 0.5, cellSize - 1, cellSize - 1); // 0.5 for crisp lines
+      }
+    }
+  }
+
+  // Optionally append
+  if (appendTo instanceof Element) {
+    appendTo.appendChild(canvas);
+  }
+
+  // Helper to get dataURL
+  function dataURL() {
+    return canvas.toDataURL("image/png");
+  }
+
+  // Helper to download PNG
+  function download(filename = downloadFilename) {
+    const a = document.createElement("a");
+    a.href = dataURL();
+    a.download = filename;
+    // Programmatic click
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+   return { canvas, ctx, dataURL, download };
+  }
+  const { canvas, download } = drawGridToCanvas(result, {
+    cellSize: 32,
+    gap: 1,
+    lineColor: "#ddd",
+    appendTo: document.body,
+    downloadFilename: "maze.png"
+  });
+
+  // Example: automatically download after drawing
+  // download();
+
+  // Or create a button to download
+  const btn = document.createElement("button");
+  btn.textContent = "Download PNG";
+  btn.onclick = () => download();
+  document.body.appendChild(btn);
 </script>

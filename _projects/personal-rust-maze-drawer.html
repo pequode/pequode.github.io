@@ -28,9 +28,9 @@ personal: true
 
   // Initialize wasm
   await maze_gen.default();
-
+  const seed_random = Math.round(Math.random()*100)
   // Generate maze
-  const result = maze_gen.maze_maker(20, 20, 0, 1, 10, 42);
+  const result = maze_gen.maze_maker(20, 20, 0, 1, 10, seed_random);
   console.log(result);
 
   function draw_canvas(grid, options = {}) {

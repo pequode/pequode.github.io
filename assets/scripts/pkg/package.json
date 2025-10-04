@@ -1,0 +1,14 @@
+{
+  "name": "maze_gen",
+  "version": "0.1.0",
+  "files": [
+    "maze_gen_bg.wasm",
+    "maze_gen.js",
+    "maze_gen.d.ts"
+  ],
+  "module": "maze_gen.js",
+  "types": "maze_gen.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

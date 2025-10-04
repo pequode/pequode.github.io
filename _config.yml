@@ -3,3 +3,5 @@ collections:
   projects:
     output: true
 url:  https://pequode.github.io/
+include:
+  - assets/scripts/pkg

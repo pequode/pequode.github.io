@@ -5,6 +5,18 @@ description: Using rust and Prims algorithm to randomly generate unique mazes.
 image: /assets/sangam_0.svg
 personal: true 
 ---
+
+<h1>A Crabby way to draw simple mazes.</h1>
+<p>Using rust and Prims algorithm to randomly generate unique mazes.</p>
+<br>
+<h2>Background</h2>
+<p>I decided to pick up rust as a fun hobby. One of the appealing things about rust. 
+Is just how easy it is to write performant code that can run anywhere. 
+Shortly after learning rust I stumbled across a youtube video about
+Prim's algorithm for mazes. I decided to reimplement it in rust and then compile that rust. 
+to wasm so that it could run in the browser. Here is the result. 
+refresh the page to get a new 20x20 maze  
+</p>
 <script type="module">
 
   import * as maze_gen from "/assets/scripts/pkg/maze_gen.js";
@@ -109,5 +121,8 @@ personal: true
   btn.onclick = () => download();
   document.body.appendChild(btn);
 </script>
-<h1>A Crabby way to draw simple mazes.</h1>
-<p>Using rust and Prims algorithm to randomly generate unique mazes.</p>
+<h1>Skills</h1>
+<ul>
+    <li>Rust</li>
+    <li>Js</li>
+</ul>

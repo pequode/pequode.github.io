@@ -108,8 +108,8 @@ personal: true
   // Draw maze on page
   const { download } = draw_canvas(result[0], {
     cellSize: 32,
-    gap: 1,
-    lineColor: "#ddd",
+    gap: 0,
+    lineColor: "#fff",
     appendTo: document.body,
     downloadFilename: "maze.png"
   });
@@ -118,10 +118,11 @@ personal: true
   const btn = document.createElement("button");
   btn.textContent = "Download PNG";
   btn.onclick = () => download();
-  document.body.appendChild(btn);
+  let el = document.getElementById("maze_cont")
+  el.appendChild(btn);
 </script>
-
-<h1>Skills</h1>
+<div id="maze_cont"></div>
+<h1>kills</h1>
 <ul>
   <li>Rust</li>
   <li>Js</li>

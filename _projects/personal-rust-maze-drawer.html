@@ -7,104 +7,106 @@ personal: true
 ---
 
 <h1>A Crabby way to draw simple mazes.</h1>
-<p>Using rust and Prims algorithm to randomly generate unique mazes.</p>
-<br>
-<h2>Background</h2>
-<p>I decided to pick up rust as a fun hobby. One of the appealing things about rust. 
-Is just how easy it is to write performant code that can run anywhere. 
-Shortly after learning rust I stumbled across a youtube video about
-Prim's algorithm for mazes. I decided to reimplement it in rust and then compile that rust. 
-to wasm so that it could run in the browser. Here is the result. 
-refresh the page to get a new 20x20 maze  
+<p>
+  Using rust and Prims algorithm to randomly generate unique mazes.
 </p>
-<script type="module">
 
+<br>
+
+<h2>Background</h2>
+<p>
+  I decided to pick up rust as a fun hobby. One of the appealing things about rust. 
+  Is just how easy it is to write performant code that can run anywhere. 
+  Shortly after learning rust I stumbled across a youtube video about
+  Prim's algorithm for mazes. I decided to reimplement it in rust and then compile that rust 
+  to wasm so that it could run in the browser. Here is the result. 
+  Refresh the page to get a new 20x20 maze.
+</p>
+
+<script type="module">
   import * as maze_gen from "/assets/scripts/pkg/maze_gen.js";
 
-  // Top-level await is allowed here because type="module"
+  // Initialize wasm
   await maze_gen.default();
 
-  // Now use the wasm functions
-  const result = maze_gen.maze_maker(10, 10, 0, 1, 10, 42);
+  // Generate maze
+  const result = maze_gen.maze_maker(20, 20, 0, 1, 10, 42);
   console.log(result);
-  function draw_canvas(grid, options = {}){
-     
-        if (!Array.isArray(grid) || grid.length === 0) {
-            throw new Error("grid must be a non-empty 2D array");
-        }
 
-  const n = grid.length;
-  // Basic validation: ensure square and numeric
-  for (let i = 0; i < n; i++) {
-    if (!Array.isArray(grid[i]) || grid[i].length !== n) {
-      throw new Error("grid must be square (n x n)");
+  function draw_canvas(grid, options = {}) {
+    if (!Array.isArray(grid) || grid.length === 0) {
+      throw new Error("grid must be a non-empty 2D array");
     }
-  }
 
-  const {
-    cellSize = 20,
-    gap = 0,
-    background = "#ffffff",
-    lineColor = null,
-    appendTo = null,
-    downloadFilename = "grid.png",
-  } = options;
-
-  const width = n * cellSize + Math.max(0, n - 1) * gap;
-  const height = width;
-
-  const canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  canvas.style.imageRendering = "pixelated"; // looks crisper for small cells
-  const ctx = canvas.getContext("2d");
-
-  // Fill background
-  ctx.fillStyle = background;
-  ctx.fillRect(0, 0, width, height);
-
-  // Draw cells
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      const value = grid[i][j];
-      const x = j * (cellSize + gap);
-      const y = i * (cellSize + gap);
-      // If exactly 0 -> black, otherwise white (you can change threshold if needed)
-      ctx.fillStyle = value === 0 ? "#000000" : "#ffffff";
-      ctx.fillRect(x, y, cellSize, cellSize);
-
-      if (lineColor) {
-        ctx.strokeStyle = lineColor;
-        ctx.lineWidth = 1;
-        ctx.strokeRect(x + 0.5, y + 0.5, cellSize - 1, cellSize - 1); // 0.5 for crisp lines
+    const n = grid.length;
+    for (let i = 0; i < n; i++) {
+      if (!Array.isArray(grid[i]) || grid[i].length !== n) {
+        throw new Error("grid must be square (n x n)");
       }
     }
+
+    const {
+      cellSize = 20,
+      gap = 0,
+      background = "#ffffff",
+      lineColor = null,
+      appendTo = null,
+      downloadFilename = "grid.png",
+    } = options;
+
+    const width = n * cellSize + Math.max(0, n - 1) * gap;
+    const height = width;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.imageRendering = "pixelated";
+    const ctx = canvas.getContext("2d");
+
+    // Fill background
+    ctx.fillStyle = background;
+    ctx.fillRect(0, 0, width, height);
+
+    // Draw cells
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        const value = grid[i][j];
+        const x = j * (cellSize + gap);
+        const y = i * (cellSize + gap);
+
+        ctx.fillStyle = value === 0 ? "#000000" : "#ffffff";
+        ctx.fillRect(x, y, cellSize, cellSize);
+
+        if (lineColor) {
+          ctx.strokeStyle = lineColor;
+          ctx.lineWidth = 1;
+          ctx.strokeRect(x + 0.5, y + 0.5, cellSize - 1, cellSize - 1);
+        }
+      }
+    }
+
+    if (appendTo instanceof Element) {
+      appendTo.appendChild(canvas);
+    }
+
+    function dataURL() {
+      return canvas.toDataURL("image/png");
+    }
+
+    function download(filename = downloadFilename) {
+      const a = document.createElement("a");
+      a.href = dataURL();
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    return { canvas, ctx, dataURL, download };
   }
 
-  // Optionally append
-  if (appendTo instanceof Element) {
-    appendTo.appendChild(canvas);
-  }
-
-  // Helper to get dataURL
-  function dataURL() {
-    return canvas.toDataURL("image/png");
-  }
-
-  // Helper to download PNG
-  function download(filename = downloadFilename) {
-    const a = document.createElement("a");
-    a.href = dataURL();
-    a.download = filename;
-    // Programmatic click
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }
-
-   return { canvas, ctx, dataURL, download };
-  }
-  const { canvas, download } = draw_canvas(result, {
+  // Draw maze on page
+  const { download } = draw_canvas(result, {
     cellSize: 32,
     gap: 1,
     lineColor: "#ddd",
@@ -112,17 +114,15 @@ refresh the page to get a new 20x20 maze
     downloadFilename: "maze.png"
   });
 
-  // Example: automatically download after drawing
-  // download();
-
-  // Or create a button to download
+  // Add download button
   const btn = document.createElement("button");
   btn.textContent = "Download PNG";
   btn.onclick = () => download();
   document.body.appendChild(btn);
 </script>
+
 <h1>Skills</h1>
 <ul>
-    <li>Rust</li>
-    <li>Js</li>
+  <li>Rust</li>
+  <li>Js</li>
 </ul>

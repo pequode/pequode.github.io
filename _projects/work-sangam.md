@@ -15,6 +15,26 @@ A Sangam is a place where the Ganges river joins with the waters of the Jumna. T
 Similarly the Sql ANalytics Gathering Model that I built is a E.T.L. which integrates non-normalized data from many different places with many different shapes. Yes. I know its a stretch :) 
 
 This project came about because we notices we were spending a lot on data storage. This came about because We initially chose a NO SQL db offering to store our job queue data. 
-Initially this was a great choice. It let us move fast and develop a schema that worked for our usecase. It also was very efficent for fast writes which we need to support for flows with 10K + concurrent submissions. 
+Initially this was a great choice. It let us move fast and develop a schema that worked for our usecase. It also was very efficient for fast writes which we need to support for flows with 10K + concurrent submissions. 
 
-However
+However, for long term storage this system was not efficent. For starters we designed interfaces for all of our databases. The upside was that this let us mix and match implementations for different tasks. The downside was that this lead to a very disorganized schema. The data was spread out over 5 different sources and duplicated many different fields. Addionally because we chose MongoDB often times we had to use strings to represent data types that could be shortened. 
+
+I realized that by normalizing this data and storing it long term, we could both save on data storage costs and start to do retrospectives on projects.
+
+# SANGAM
+
+# What. 
+Sangam is a nightly ETL that integrates and processes workflow metadata from 5 different sources. It has a > 98% uptime and has to date ingested over 50k workflows. Sangam also is in charge or deleting old flows from the original metadata store but makes promises about how long users can expect data. 
+
+Sangam also has a UI and SDK which give users the ability to both launch full sql read queries against the data and get some commonly asked questions ie
+- (how many compute hours for a given flow in the past month?)
+- (how much time is spent idle for a give flow step?)
+- (how long should I expect this step to take on average?)
+
+Sangam uses railroad programming so that even single ingestion failures don't crash the pipeline. 
+
+# Skills 
+- SQL 
+- Python 
+- Gitlab CICD 
+- Kubernetes 

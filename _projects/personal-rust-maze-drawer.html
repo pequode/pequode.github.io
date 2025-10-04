@@ -97,20 +97,23 @@ personal: true
       const a = document.createElement("a");
       a.href = dataURL();
       a.download = filename;
-      document.body.appendChild(a);
+      let el = document.getElementById("maze_cont")
+      el.appendChild(a);
+      
       a.click();
       a.remove();
     }
 
     return { canvas, ctx, dataURL, download };
   }
-
+  let el = document.getElementById("maze_cont")
+  
   // Draw maze on page
   const { download } = draw_canvas(result[0], {
     cellSize: 32,
     gap: 0,
     lineColor: "#fff",
-    appendTo: document.body,
+    appendTo: el,
     downloadFilename: "maze.png"
   });
 
@@ -118,7 +121,7 @@ personal: true
   const btn = document.createElement("button");
   btn.textContent = "Download PNG";
   btn.onclick = () => download();
-  let el = document.getElementById("maze_cont")
+  
   el.appendChild(btn);
 </script>
 <div id="maze_cont"></div>

@@ -25,12 +25,33 @@ title: Home
                 width: 100%;
                 border-radius: 6px;
             }
+            .cardfun {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 1rem;
+                background: #05ba30;
+                transition: box-shadow 0.2s ease;
+            }
+
+            .cardfun:hover {
+                
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            .cardfun img {
+                width: 100%;
+                border-radius: 6px;
+            }
     </style>
 <h1>My Projects</h1>
 
 <div class="projects">
   {% for project in site.projects %}
+    {% if project.personal %}
+    <div class="cardfun">
+    {% else %}
     <div class="card">
+    {% endif %}
       <a href="{{ project.url }}">
         {% if project.image %}
           <img src="{{ project.image }}" alt="{{ project.title }}">

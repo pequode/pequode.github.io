@@ -1,0 +1,18 @@
+---
+title: A Crabby way to draw simple mazes.  
+layout: default
+description: Using rust and Prims algorithm to randomly generate unique mazes.    
+image: /assets/sangam_0.svg
+personal: true 
+---
+<script type="module">
+
+  import * as maze_gen from "/assets/scripts/pkg/maze_gen.js";
+
+  // Top-level await is allowed here because type="module"
+  await maze_gen.default();
+
+  // Now use the wasm functions
+  const result = maze_gen.maze_maker(10, 10, 0, 1, 10, 42);
+  console.log(result);
+</script>

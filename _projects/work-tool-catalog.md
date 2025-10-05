@@ -118,29 +118,7 @@ After contributing all these components, all users have to do to make a tool ava
 - register the task object. 
 - deploy the registered task. 
 All of which can be done in 3 lines of code. 
-```mermaid 
-flowchart LR
-    A(["Client Laptop"]) --> B["Freeze Enviornment and function call in Dockerized Job"]
-    B --> C[("Upload Dockerized job to Shared DB")]
-    D{"Api Gateway"} --> E[("Reads from shared DB and spins up api for work job submission")]
-    E --> F[["Validate JSON based input from post requests and then add jobs to queue"]]
-    G{{"Queue Workers"}} --> H[["Read work on queue then process using Dockerized env"]]
-    H --> I[["Write results to queue"]]
-    A1@{ label: "Client2's laptop" } <--> D1{"Api Gateway"}
-    D1 <--> J[["Read results from queue and send back to client"]]
-    A1@{ shape: stadium}
-    style A fill:#BBDEFB
-    style C fill:#2962FF
-    style D fill:#FFE0B2
-    style E fill:#2962FF
-    style F fill:#C8E6C9
-    style G fill:#E1BEE7
-    style H fill:#C8E6C9
-    style I fill:#C8E6C9
-    style A1 fill:#BBDEFB
-    style D1 fill:#FFE0B2
-    style J fill:#C8E6C9
-```
+![Tool Catalog UX](/assets/TC_1.svg)
 # Impact 
 To date this project has had the greatest impact on of my projects. It has allowed 40+ scientist to contribute tools which allow us to manipulate proteins with natural language. Before the Tool Catalog existed it was normal to have 6 + people involved in any given experiment. Now a single code illiterate scientist can ask their local chatGPT client to "improve binding on 6hji.cif to 100 nM while maintaining structural symmetry" and it has the ability to make that happen.  
 

@@ -1,0 +1,98 @@
+---
+title: Converting Images into art.  
+layout: default
+description: Using rust and OpenCV and the FFT to do edge decomposition for images. 
+image: /assets/rust_fft_0.png
+personal: true 
+--- 
+<h1>Converting Images into art.</h1>
+<p>
+ Using rust and OpenCV and the FFT to do edge decomposition for images.
+</p>
+<br>
+<input type="file" id="fileInput" accept="image/*">
+<h2>Background</h2>
+<b>latex here>
+<p>
+I have a deep admiration for the Fourier Transform(FT) in math. 
+This is one neat trick that your doctor doesn't want you to know.
+It is represents simple way of breaking down a periodic signal into a single 
+spike in a different representation.
+ 
+
+Intuitively this can be though of like this: 
+(this analogy is not complete and hides some of the FT complexity) 
+- I can tell you  give you all the points on a sin wave 
+- I can tell you that a sin wave has a period of 2pi and has no translations. 
+
+In both examples you can reconstruct the values of the function. 
+Excitingly in the second example I give you much less information
+and you can still recreate the signal. 
+
+Although initially this is a basic concept it lets us do really cool things! 
+One such thing is decompose images into areas of
+high frequency and low frequency. 
+
+</p>
+image upload widget here 
+<p>
+This is important for image processing techniques and 
+is actually how JPEG compression works under the hood. 
+
+Very basically when you take a version of the Fourier Transform on 
+an image signal called the DFT you start to see cool things. 
+
+In image processing when you pass an image through a DFT you get what is 
+called a spectrum. 
+</p>
+spectrum here 
+<p>
+This spectrum keeps the information in the image that changes slowly 
+in one section near the origin. It keeps the information which changes 
+faster further away. For an idea of what im talking about,lets consider 
+a red ball on a yellow background. Here the ball is all one color and 
+the background is also monochromatic. So if you zoomed into any section 
+of the image you would get probably get just one color. If you zoomed in 
+on the right section however you would get a change of colors between yellow 
+black and red. When you take a DFT these areas of change get pulled apart 
+from the areas of constancy. You then can mask the low information areas 
+of the spectrum to do whats called a high pass filter. 
+
+High pass filtering is the starting point for most classical edge detection 
+algorithms.
+
+Edge detection takes an image and then gives us lines where the image changes. 
+This is useful in image processing because it allows us to do other tasks 
+like segmentation or featurization. 
+
+An edges are basically a silhouette of an image. 
+
+Finally there is another concept called a Fourier Series. This is similar to 
+a Taylor Series from calculus. In a Taylor Series we are able to reconstruct 
+some function f(x) with its TS approximation g(x). Here g(x) is an polynomial 
+of degree n with special co-efficient tuned to the original function. As the 
+number of terms in a taylor series grows you get a better and better 
+approximation of the original function further and further from the origin.
+(Or the region you've tuned your approximation to focus on.) 
+<strong>image of taylor approximation here</strong> 
+
+A Fourier series is a TS but the coefficients used represents different 
+frequencies components. As you add terms to a Fourier series you basically 
+add the detail to the signal you are approximating. 
+
+I had a project idea to combine these two uses of the Fourier transform to
+ make a image -> impressionist image filter. 
+
+I wanted to write it all in rust and js and have it run on the client.  
+</p>
+<h1>Crabby Image Converter</h1>
+<p>This image converter uses client side OpenCV to first do Canny 
+edge detection on an image. Then it will give the points for all edges to a DFT
+which runs in rust. This then I can use to calculate my FS coefficients and 
+then I can resample in the time domain with a new function approximator.
+But I can tune how curvy this is by lopping off terms! </p>
+<h1>Skills</h1>
+<ul>
+  <li>Rust</li>
+  <li>Js</li>
+</ul>

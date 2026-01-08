@@ -1,3 +1,11 @@
+---
+title: Piles of Paper go Poof!  
+layout: default
+description: A personal project for easy digitization of paper records.  
+image: /assets/auto_archiver/aa_0.png
+---
+# Piles of Paper go Poof!  
+My work on our scientific compute backend. 
 ## Background 
 I decided to work on this project because of an ongoing situation at my family member's house. They are currently plagued by a room full of old tax documents and business records, which might have some interest but are un-categorized and mostly bland. They are currently going through these documents by hand and reviewing them before discarding them. The process is also limited by their specific knowledge of a given document's importance, so it is very hard for others to assist.
 

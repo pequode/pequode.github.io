@@ -10,14 +10,14 @@ Smart archiving so that data is still useful.
 
 ## Background 
 
-A Sangam is a place where the Ganges river joins with the waters of the Jumna. The water from the wide, turbulent, and slow Ganges must be integrated with the uniform fast flow of the Jumna. 
+A [Sangam](https://www.wordwebonline.com/en/SANGAM) is a place where the Ganges river joins with the waters of the Jumna. The water from the wide, turbulent, and slow Ganges must be integrated with the uniform fast flow of the Jumna. 
 
-Similarly the Sql ANalytics Gathering Model that I built is a E.T.L. which integrates non-normalized data from many different places with many different shapes. Yes. I know its a stretch :) 
+Similarly the Sql ANalytics Gathering Model that I built is a E.T.L. which integrates non-normalized data from many different places with many different shapes. Yes. I know the acroynm a stretch :) 
 
 This project came about because we notices we were spending a lot on data storage. This came about because We initially chose a NO SQL db offering to store our job queue data. 
-Initially this was a great choice. It let us move fast and develop a schema that worked for our usecase. It also was very efficient for fast writes which we need to support for flows with 10K + concurrent submissions. 
+Initially this was a great choice. It let us move fast and develop a schema that worked for our use case. It also was very efficient for fast writes which we need to support for flows with 10K + concurrent submissions. 
 
-However, for long term storage this system was not efficent. For starters we designed interfaces for all of our databases. The upside was that this let us mix and match implementations for different tasks. The downside was that this lead to a very disorganized schema. The data was spread out over 5 different sources and duplicated many different fields. Addionally because we chose MongoDB often times we had to use strings to represent data types that could be shortened. 
+However, for long term storage this system was not efficient. For starters we designed interfaces for all of our databases. The upside was that this let us mix and match implementations for different tasks. The downside was that this lead to a very disorganized schema. The data was spread out over 5 different sources and duplicated many different fields. Additionally because we chose MongoDB often times we had to use strings to represent data types that could be shortened. 
 
 I realized that by normalizing this data and storing it long term, we could both save on data storage costs and start to do retrospectives on projects.
 

@@ -15,12 +15,25 @@ personal: true
 
 <h2>Background</h2>
 <p>
-  I decided to pick up rust as a fun hobby. One of the appealing things about rust. 
-  Is just how easy it is to write performant code that can run anywhere. 
-  Shortly after learning rust I stumbled across a youtube video about
-  Prim's algorithm for mazes. I decided to reimplement it in rust and then compile that rust 
-  to wasm so that it could run in the browser. Here is the result. 
-  Refresh the page to get a new 20x20 maze.
+  While working on a JS based video game for a personal project I decided that it would be fun to implement the maze generation in rust.
+
+  My Job focuses mostly on python and doesn't give me a lot of ability to write code in rust but I have been really impressed with the language. 
+
+  I come from a C/C++ background and Rust's memory safety and exception handling are really appealing coming from duck typing/ void* pointers.
+
+  I also am of the opinion that self-hosted websites work better when as much of the work of the tool is done client-side. 
+  However the clear trade off is that it is hard to write fast JS and it takes up a lot of mem. Enter Wasm. Similar to 
+  packages like numpy for python wasm allows JS to bind to programs written in other languages which can run on the browser. 
+  It is compiled making it fast and potentially low memory. 
+
+  rust has a lot of great support for WASM binding so I though it would be cool to make the compute heavy maze generation step. 
+  happen in rust. 
+
+  I decided to use prims algorithm to generate 32 x 32 mazes. This is a cool iterative algorithm
+  that basically does BFS on a grid and dice-roll decides to remove squares if the would connect to an existing part of the maze.  
+
+  Here is the result. 
+  Refresh the page to get a new 32x32 maze.
 </p>
 
 <script type="module">
@@ -30,7 +43,7 @@ personal: true
   await maze_gen.default();
   const seed_random = Math.round(Math.random()*100)
   // Generate maze
-  const result = maze_gen.maze_maker(20, 20, 0, 1, 10, seed_random);
+  const result = maze_gen.maze_maker(32, 32, 0, 1, 10, seed_random);
   console.log(result);
 
   function draw_canvas(grid, options = {}) {

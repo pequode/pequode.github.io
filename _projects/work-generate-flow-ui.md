@@ -18,7 +18,13 @@ create Workflow(DAG) visualizations for Flows with many different configurations
 
 I created a clear separation of responsibility between frontend code and backend api's. My focus is primarily supporting Applied Machine Learning and distributed compute but I wrote the first version of this UI in vanilla JS. It served as a functional touch point for users until we hired a UX engineer. 
 
-I provided full CICD for this project. This allowed developers to see their new features hosted in a mater of minutes. This UI is feature rich. It is build with React and a serenes of pluggable backend apis. Including components for:
+I provided full CICD for this project. This allowed developers to see their new features hosted in a mater of minutes. 
+
+I also designed and supported the backend model for the UI application. 
+![an image of generate flow ui](/assets/gflowui_2.png "The GFlow backend I wrote by myself.")
+This architecture allows a clear separation of responsibility for the work done on the frontend application and the backend. Everything here is a K8's Helm deployed service. The UI submits form requests to the backend and then changes when the backend responds. The Reverse proxy layer lets other services hook into our MD without needing to go through the UI or re-invent the wheel. 
+
+This UI is feature rich. It is build with React and a serenes of pluggable backend apis. Including components for:
 - viewing projects, 
 - individual workflows,
 - logs, 

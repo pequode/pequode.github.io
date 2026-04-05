@@ -96,7 +96,7 @@ You can think of MCP as more agent friendly way of describing what tools are ava
 Because MCP is a standard this meant that all of the tools contributed by users could now be used by standard LLM clients like chatGPT's local apps or Cursor or Claude code. 
 
 ### RAG and NLP based tool search 
-Although converting these tools was a challenge a different challenge had to do with visibility once hosted. Because I reused the queuing logic from a previous project [generate-flow](/projects/work-generate-flow.html). All of the views from the UI companion app  [generate-flow-UI](/projects/work-generate-flow-ui.html) still worked for users to monitor their tools. However, finding the tools would still be a challenge. 
+Although converting these tools was a challenge a different challenge had to do with visibility once hosted. Because I reused the queuing logic from our internal workflow platform, generate-flow. All of the views from the UI companion app [generate-flow-UI](/projects/work-generate-flow-ui.html) still worked for users to monitor their tools. However, finding the tools would still be a challenge. 
 
 Wouldn't it be nice if we could store all the documentation for these contributed tools alongside the tools themselves and then use an LLM to find relevant tools base on a search?
 

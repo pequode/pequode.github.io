@@ -1,14 +1,14 @@
 ---
-title: Visibility Maters 
+title: Visibility Matters 
 layout: default
 description: My work on supporting the frontend application for our workflows. 
 image: /assets/gflowui_0.png
 ---
-# Visibility Maters 
+# Visibility Matters 
 My work on our scientific compute backend. 
 
 ## Background 
-Controlling distributed systems in realtime is hard. Many people at [Generate Biomedicines](https://generatebiomedicines.com/) prefer using generate-flow to other workflow managers. It allows them to, say, use 10 different machines to run predictions on rather than their one macbook. However, now there are 10 different places that can have errors. What if they use 100 different machines by accident. How can they predict how long a new flow will take if they cant see the time the old flow took? Generate-Flow-UI is a package that I prototyped and help support ongoing development of. It is the UI for the platform [generate-flow](/projects/work-generate-flow.html) 
+Controlling distributed systems in realtime is hard. Many people at [Generate Biomedicines](https://generatebiomedicines.com/) prefer using generate-flow to other workflow managers. It allows them to, say, use 10 different machines to run predictions on rather than their one macbook. However, now there are 10 different places that can have errors. What if they use 100 different machines by accident. How can they predict how long a new flow will take if they cant see the time the old flow took? Generate-Flow-UI is a package that I prototyped and help support ongoing development of. It is the UI for our internal workflow platform, generate-flow. 
 
 # Generate-Flow UI
 ![an image of generate flow ui](/assets/gflowui_1.png "The GFlow UI I wrote by myself.")
@@ -18,7 +18,7 @@ create Workflow(DAG) visualizations for Flows with many different configurations
 
 I created a clear separation of responsibility between frontend code and backend api's. My focus is primarily supporting Applied Machine Learning and distributed compute but I wrote the first version of this UI in vanilla JS. It served as a functional touch point for users until we hired a UX engineer. 
 
-I provided full CICD for this project. This allowed developers to see their new features hosted in a mater of minutes. 
+I provided full CICD for this project. This allowed developers to see their new features hosted in a matter of minutes. 
 
 I also designed and supported the backend model for the UI application. 
 ![an image of generate flow ui](/assets/gflowui_2.png "The GFlow backend I wrote by myself.")

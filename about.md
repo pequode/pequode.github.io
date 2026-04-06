@@ -8,7 +8,7 @@ permalink: /about/
 
 # About
 
-I'm George, a platform engineer and applied ML developer with ~4 years of experience building infrastructure for scientific computing and protein design at [Generate Biomedicines](https://generatebiomedicines.com/).
+I'm pequode(George), a platform engineer and applied ML developer with ~4 years of experience building infrastructure for scientific computing and protein design at [Generate Biomedicines](https://generatebiomedicines.com/).
 
 ## What I do
 

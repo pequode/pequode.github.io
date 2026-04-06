@@ -1,9 +1,10 @@
 ---
 title: Science At Scale. 
 layout: default
-description: My work on our scientific compute backend. 
+description: Distributed workflow platform for protein design research. 10k+ concurrent jobs across heterogeneous compute backends.
 image: /assets/gflow_0.png
-published: false
+order: 4
+featured: true
 ---
 # Science At Scale. 
 My work on our scientific compute backend. 

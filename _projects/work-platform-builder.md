@@ -1,8 +1,9 @@
 ---
 title: But It Works On My Computer? 
 layout: default
-description: How I designed a system to support a unified compute environment.  
+description: CI template suite for automated Docker image builds with cross-repo dependency resolution and unit test validation.
 image: /assets/PB_0.png
+order: 7
 ---
 # But It Works On My Computer? 
 My work on our scientific compute backend. 

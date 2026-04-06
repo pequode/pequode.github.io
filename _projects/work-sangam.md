@@ -1,8 +1,9 @@
 ---
 title: Cutting Cost by normalizing data.  
 layout: default
-description: Smart archiving so that data is still useful.    
+description: Nightly ETL normalizing workflow metadata from 5 sources into SQL. 98%+ uptime, 50k+ workflows ingested.
 image: /assets/sangam_0.svg
+order: 8
 ---
 # Cutting Cost by normalizing data.
 

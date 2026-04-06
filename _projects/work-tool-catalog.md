@@ -1,8 +1,10 @@
 ---
 title: Access To AI  
 layout: default
-description: My project to give users a consistent way to contribute AI compatible micro services.  
+description: A platform for converting scientific Python into agent-compatible microservices. Powers 200+ protein design tools via MCP.
 image: /assets/TC_0.png
+order: 1
+featured: true
 ---
 
 # Access To AI  

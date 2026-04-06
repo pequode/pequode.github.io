@@ -1,8 +1,10 @@
 ---
 title: Head-to-head-to-head in structure prediction.  
 layout: default
-description: My work on making comparing different sequence to structure models an afterthought.   
+description: Multi-model inference service for protein structure prediction, scaling to 100k+ concurrent predictions across AlphaFold2, ESMFold, and Chroma.
 image: /assets/sps_0.png
+order: 2
+featured: true
 ---
 
 # Head-to-head-to-head in structure prediction.  

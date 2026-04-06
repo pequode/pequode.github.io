@@ -1,9 +1,11 @@
 ---
 title: NanoPack 
 layout: default
-description: A senior design project automating microchip packaging with computer vision and CNC robotics.
+description: Automated microchip packaging with YOLOv5 localization, digit recognition, and CNC pick-and-place robotics.
 image: /assets/nanopack/full_1.jpg
 personal: true
+order: 3
+featured: true
 ---
 # NanoPack
 
@@ -63,7 +65,6 @@ I also worked on the chip placement logic. We would identify how many chips belo
 ## Integration
 
 ![Control flow](/assets/nanopack/control_1.png "Control flow")
-![NanoPack UI](/assets/nanopack/nanopack_ui_0.png "NanoPack UI")
 
 I was also in charge of integrating all the pieces. I took trained models and wrote inference classes to help call them. I created our Python package and an async backend Python process that held our state. I created a Win32 pipe-based command protocol to facilitate multiprocess communication and wrote helpers around the serial communication bus we used to talk to the CNC controller.
 

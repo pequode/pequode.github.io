@@ -3,15 +3,23 @@ layout: default
 title: Home
 ---
 <link rel="stylesheet" href="/assets/css/style.css">
-<h1>My Projects</h1>
 
+<div class="hero">
+  <h1>George</h1>
+  <p class="tagline">Platform engineer and applied ML developer building infrastructure for scientific computing and protein design.</p>
+  <div class="hero-links">
+    <a href="https://github.com/pequode">GitHub</a>
+    <a href="/about/">About</a>
+    <!-- <a href="/assets/resume.pdf">Resume</a> -->
+  </div>
+</div>
+
+<h2 class="section-heading">Featured Projects</h2>
 <div class="projects">
-  {% for project in site.projects %}
-    {% if project.personal %}
-    <div class="cardfun">
-    {% else %}
-    <div class="card">
-    {% endif %}
+  {% assign sorted = site.projects | sort: "order" %}
+  {% for project in sorted %}
+    {% if project.order and project.featured %}
+    <div class="card {% if project.personal %}card--personal{% endif %}">
       <a href="{{ project.url }}">
         {% if project.image %}
           <img src="{{ project.image }}" alt="{{ project.title }}">
@@ -20,5 +28,23 @@ title: Home
         <p>{{ project.description }}</p>
       </a>
     </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<h2 class="section-heading">Other Projects</h2>
+<div class="projects">
+  {% for project in sorted %}
+    {% if project.order and project.featured != true %}
+    <div class="card {% if project.personal %}card--personal{% endif %}">
+      <a href="{{ project.url }}">
+        {% if project.image %}
+          <img src="{{ project.image }}" alt="{{ project.title }}">
+        {% endif %}
+        <h2>{{ project.title }}</h2>
+        <p>{{ project.description }}</p>
+      </a>
+    </div>
+    {% endif %}
   {% endfor %}
 </div>

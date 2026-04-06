@@ -1,8 +1,10 @@
 ---
 title: Piles of Paper go Poof!  
 layout: default
-description: A personal project for easy digitization of paper records.  
+description: OCR and LLM-powered document digitization with RAG-based semantic search over scanned records.
 image: /assets/auto_archiver/aa_0.png
+order: 5
+featured: true
 ---
 # Piles of Paper go Poof!  
 A personal project for easy digitization of paper records. 

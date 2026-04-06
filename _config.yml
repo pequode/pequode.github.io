@@ -1,7 +1,20 @@
 theme: minima
+title: George
+description: Platform engineering, scientific computing, and applied ML.
+author:
+  name: George
+
+github_username: pequode
+
+header_pages:
+  - about.md
+
 collections:
   projects:
     output: true
-url:  https://pequode.github.io/
+    sort_by: order
+
+url: https://pequode.github.io/
+
 include:
   - assets/scripts/pkg

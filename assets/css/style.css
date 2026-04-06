@@ -1,9 +1,45 @@
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+/* Hero */
+.hero {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.hero h1 {
+    margin-bottom: 0.25rem;
+}
+
+.hero .tagline {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+.hero-links {
+    display: flex;
     gap: 1rem;
 }
 
+.hero-links a {
+    color: #1a6b3c;
+    font-weight: 500;
+}
+
+/* Section headings */
+.section-heading {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Project grid */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Cards — shared base */
 .card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -16,30 +52,40 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.card:focus-within {
+    outline: 2px solid #1a6b3c;
+    outline-offset: 2px;
+}
+
+.card--personal {
+    background: #9cffb3;
+}
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .card img {
     width: 100%;
     border-radius: 6px;
     image-rendering: pixelated;
-    image-rendering: crisp-edges; /* fallback */
+    image-rendering: crisp-edges;
 }
 
-.cardfun {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    background: #9cffb3;
-    transition: box-shadow 0.2s ease;
-    color: black;
+.card h2 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.25rem;
 }
 
-.cardfun:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: black;
+.card p {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0;
+    line-height: 1.4;
 }
 
-.cardfun img {
-    width: 100%;
-    border-radius: 6px;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges; /* fallback */
+.card--personal p {
+    color: #333;
 }

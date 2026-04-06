@@ -1,8 +1,9 @@
 ---
 title: Visibility Matters 
 layout: default
-description: My work on supporting the frontend application for our workflows. 
+description: React-based monitoring UI for distributed scientific workflows with DAG visualization and real-time execution control.
 image: /assets/gflowui_0.png
+order: 6
 ---
 # Visibility Matters 
 My work on our scientific compute backend. 

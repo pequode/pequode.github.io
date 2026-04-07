@@ -4,8 +4,6 @@ description: Platform engineering, scientific computing, and applied ML.
 author:
   name: pequode
 
-github_username: pequode
-
 header_pages:
   - about.md
 
